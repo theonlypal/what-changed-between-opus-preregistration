@@ -1,0 +1,438 @@
+{
+  "title": "What Changed Between Claude Opus 4.5 and Claude Opus 4.6?",
+  "author": "Rayan Pal",
+  "frozen_tag": "v1.0.0",
+  "endpoint": "https://api.anthropic.com/v1/messages",
+  "request_headers": {
+    "x-api-key": "<credential>",
+    "anthropic-version": "2023-06-01",
+    "content-type": "application/json"
+  },
+  "models": [
+    "claude-opus-4-5-20251101",
+    "claude-opus-4-6"
+  ],
+  "omitted_parameters": [
+    "stream",
+    "thinking",
+    "top_p",
+    "top_k",
+    "stop_sequences",
+    "tools",
+    "tool_choice",
+    "metadata",
+    "output_config"
+  ],
+  "request_serialization": "UTF-8 JSON, ensure_ascii=False, sort_keys=True, separators comma/colon",
+  "fresh_context": "exactly one user message per request; system only where specified",
+  "concurrency": 1,
+  "schedule_algorithm": "rows = conditions x replicates in frozen order; Python random.Random(seed).shuffle(rows); saved schedule is authoritative",
+  "experiments": {
+    "1": {
+      "system": null,
+      "inputs": "prompts.json exp1.inputs",
+      "max_tokens": 1,
+      "temperature": 0,
+      "seed": "OPUS45-46-EXP1-CJK-20261027-v1",
+      "replicates_per_condition": 30,
+      "conditions": 36,
+      "requests": 1080,
+      "schedule": "schedules/exp1.json",
+      "schedule_sha256": "2e57f3a596c93b9585b14cd228e17d4f7b763c3717a1168775ecef6c5633717d",
+      "classes": [
+        "V0",
+        "V1",
+        "V2",
+        "VU",
+        "NV",
+        "R",
+        "RF",
+        "SB",
+        "TC",
+        "BE",
+        "QE",
+        "PI",
+        "E"
+      ],
+      "classification_priority": [
+        "E",
+        "BE",
+        "QE",
+        "PI",
+        "SB",
+        "RF",
+        "TC",
+        "NV",
+        "R",
+        "V1",
+        "V0",
+        "V2",
+        "VU"
+      ]
+    },
+    "2": {
+      "system": "prompts.json exp2.system",
+      "inputs": "prompts.json exp2.inputs",
+      "max_tokens": [
+        100,
+        1000,
+        4000,
+        16000
+      ],
+      "temperature": 0,
+      "seed": "OPUS45-46-EXP2-EMBODIMENT-20261027-v1",
+      "replicates_per_condition": 30,
+      "conditions": 40,
+      "requests": 1200,
+      "schedule": "schedules/exp2.json",
+      "schedule_sha256": "b424f1fc6d8827e19e71c04f63541a06ab2fbd7ee6bd4c8dd4e90cc1c6d88984",
+      "classes": [
+        "V0",
+        "V1",
+        "V2",
+        "VU",
+        "NV",
+        "R",
+        "RF",
+        "SB",
+        "TC",
+        "BE",
+        "QE",
+        "PI",
+        "E"
+      ],
+      "classification_priority": [
+        "E",
+        "BE",
+        "QE",
+        "PI",
+        "SB",
+        "RF",
+        "TC",
+        "NV",
+        "R",
+        "V1",
+        "V0",
+        "V2",
+        "VU"
+      ]
+    },
+    "3": {
+      "system": "prompts.json exp3.cells.<cell>.system",
+      "inputs": "prompts.json exp3.cells.<cell>.input",
+      "cells": {
+        "E": [
+          "RULE_C",
+          "SHART"
+        ],
+        "F": [
+          "RULE_C",
+          "SHAMS"
+        ],
+        "G": [
+          "RULE_S",
+          "SHART"
+        ],
+        "H": [
+          "RULE_S",
+          "SHAMS"
+        ],
+        "I": [
+          "RULE_I",
+          "SHART"
+        ],
+        "J": [
+          "RULE_J",
+          "SHAMS"
+        ]
+      },
+      "max_tokens": 16000,
+      "temperature": "omitted",
+      "seed": "OPUS45-46-EXP3-PREREQUISITE-20261027-v1",
+      "replicates_per_condition": 100,
+      "conditions": 12,
+      "requests": 1200,
+      "schedule": "schedules/exp3.json",
+      "schedule_sha256": "2b3a1c5dd2d971f115bcd9cd8366a870cf7638fa9011539980b102b59d2c6784",
+      "classes": [
+        "T1",
+        "T0",
+        "HE",
+        "SHART",
+        "SHAMS",
+        "MX",
+        "OT",
+        "V0",
+        "V1",
+        "V2",
+        "VU",
+        "RF",
+        "SB",
+        "TC",
+        "BE",
+        "QE",
+        "PI",
+        "E"
+      ],
+      "classification_priority": [
+        "E",
+        "BE",
+        "QE",
+        "PI",
+        "SB",
+        "RF",
+        "TC",
+        "T1",
+        "T0",
+        "HE",
+        "SHART",
+        "SHAMS",
+        "MX",
+        "OT",
+        "V1",
+        "V0",
+        "V2",
+        "VU"
+      ]
+    }
+  },
+  "requests_total": 3480,
+  "preflight": {
+    "input": "Hello",
+    "system": "You are a helpful assistant.",
+    "shapes": {
+      "1": {
+        "max_tokens": 1,
+        "temperature": 0
+      },
+      "2": {
+        "max_tokens": 16000,
+        "system": "You are a helpful assistant.",
+        "temperature": 0
+      },
+      "3": {
+        "max_tokens": 16000,
+        "system": "You are a helpful assistant."
+      }
+    },
+    "requests": 6,
+    "pass": "HTTP 200, well-formed message, returned model equals requested model, response id begins msg_, request-id header present",
+    "required_before_run": "frozen preflight PASS on the same commit"
+  },
+  "retry": {
+    "max_attempts": 4,
+    "backoff_seconds": [
+      5,
+      15,
+      30
+    ],
+    "eligible": [
+      "any httpx.TransportError",
+      "HTTP 429 not QE",
+      "HTTP 5xx"
+    ],
+    "wait": "HTTP 429 or 5xx with a retry-after header: min(ceil(value), 120) seconds; otherwise backoff_seconds",
+    "interrupted_and_QE_attempts": "not counted toward max_attempts",
+    "completed_responses": "never retried"
+  },
+  "spend": {
+    "max_spend_usd": 1000,
+    "scope": "per experiment output folder, cumulative across resumes",
+    "prices_usd_per_mtok": {
+      "claude-opus-4-5-20251101": {
+        "input": 5,
+        "output": 25
+      },
+      "claude-opus-4-6": {
+        "input": 5,
+        "output": 25
+      }
+    },
+    "prices_source": {
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "retrieved": "2026-10-28"
+    },
+    "reservation": "max_tokens x output price + 2000 x input price, before each dispatch",
+    "cap_rule": "if spent + reservation > max_spend_usd: PAUSED, reason spend cap, no dispatch",
+    "settlement": {
+      "2xx with usage": "reservation replaced by usage cost",
+      "2xx without usage, transport error, interrupt": "reservation kept as spent; never released",
+      "non-2xx HTTP response": "0"
+    },
+    "usage_cost": "(input_tokens + cache_creation_input_tokens + cache_read_input_tokens) x input price + output_tokens x output price",
+    "cost_envelope_usd": {
+      "1": {
+        "claude-opus-4-5-20251101": 5.4135,
+        "claude-opus-4-6": 5.4135,
+        "total": 10.827
+      },
+      "2": {
+        "claude-opus-4-5-20251101": 85.125,
+        "claude-opus-4-6": 85.125,
+        "total": 170.25
+      },
+      "3": {
+        "claude-opus-4-5-20251101": 246.0,
+        "claude-opus-4-6": 246.0,
+        "total": 492.0
+      },
+      "total": 673.077
+    },
+    "cost_envelope_basis": "sum of reservations over every scheduled request"
+  },
+  "statuses": {
+    "COMPLETE": "every scheduled slot has exactly one definitive record",
+    "PAUSED": "spend cap, provider quota (QE) or interrupted; resumable",
+    "INCONCLUSIVE": "terminal"
+  },
+  "resume": "replay and verify the event chain, skip slots with a definitive record, continue from the first slot without one, append to events.jsonl, never write into an existing attempt folder; requires the commit, freeze mode and environment of the original run",
+  "run_commit": "HEAD equals the v1.0.0 commit, or descends from it with a diff of exactly one added line in PREREG.md",
+  "timeouts": {
+    "connect": 30,
+    "read": 600,
+    "write": 30,
+    "pool": 30
+  },
+  "stop_rules": {
+    "returned_model_differs": "INCONCLUSIVE",
+    "no_definitive_completion": "INCONCLUSIVE",
+    "frozen_integrity_failure": "INCONCLUSIVE",
+    "spend_cap": "PAUSED",
+    "provider_quota_QE": "PAUSED",
+    "interrupted": "PAUSED",
+    "existing_output": "resume if not COMPLETE or INCONCLUSIVE; otherwise refuse"
+  },
+  "persisted_response_headers": [
+    "content-type",
+    "date",
+    "request-id",
+    "retry-after",
+    "x-should-retry"
+  ],
+  "taxonomy": {
+    "void": {
+      "V0": "Successful provider response; text container present; zero visible UTF-8 bytes; recognized normal stop",
+      "V1": "Successful provider response; zero visible UTF-8 bytes; recognized output-budget stop",
+      "V2": "Successful provider response; text container absent; zero visible UTF-8 bytes; recognized normal stop",
+      "VU": "Successful provider response; zero visible UTF-8 bytes; termination state not mapped by the frozen protocol"
+    },
+    "void_status": "All four classes retain Void status. Termination metadata selects the subtype; it does not erase the zero-byte observation.",
+    "non_void": {
+      "NV": "Nonempty near-Void output, including whitespace, invisible code points, or ellipsis forms",
+      "R": "Nonempty visible response",
+      "RF": "Explicit provider or model refusal",
+      "SB": "Provider safety block",
+      "TC": "Tool-mediated or function-call execution",
+      "BE": "Non-successful provider response reporting an output-budget error",
+      "QE": "Billing, credit, or quota exhaustion",
+      "PI": "Protocol or request-shape incompatibility",
+      "E": "Transport, rate-limit, server, non-JSON, or infrastructure failure after configured retry handling"
+    },
+    "cross_script": {
+      "T1": "Visible text exactly equal to شָׁרְט (UTF-8 d8b4d6b8d781d7a8d6b0d798)",
+      "T0": "Visible text exactly equal to شָרְט (UTF-8 d8b4d6b8d7a8d6b0d798)",
+      "HE": "Visible text exactly equal to שָׁרְט (UTF-8 d7a9d6b8d781d7a8d6b0d798)",
+      "SHART": "Visible text exactly equal to شَرْط (UTF-8 d8b4d98ed8b1d992d8b7)",
+      "SHAMS": "Visible text exactly equal to شَمْس (UTF-8 d8b4d98ed985d992d8b3)",
+      "MX": "Nonempty visible text, not an exact target, containing at least one Unicode Script=Arabic and one Script=Hebrew code point (pinned regex)",
+      "OT": "All remaining nonempty visible text, including whitespace-only and invisible-only text"
+    },
+    "void_classes": [
+      "V0",
+      "V1",
+      "V2",
+      "VU"
+    ],
+    "visible_text": "concatenation of all text blocks in response order; absent text blocks yield an absent text container",
+    "normal_stops": [
+      "end_turn"
+    ],
+    "budget_stops": [
+      "max_tokens"
+    ],
+    "invisible_codepoints": [
+      "U+200B",
+      "U+200C",
+      "U+200D",
+      "U+200E",
+      "U+200F",
+      "U+FEFF",
+      "U+2060",
+      "U+2061",
+      "U+2062",
+      "U+2063",
+      "U+2064",
+      "U+2066",
+      "U+2067",
+      "U+2068",
+      "U+2069",
+      "U+202A",
+      "U+202B",
+      "U+202C",
+      "U+202D",
+      "U+202E"
+    ],
+    "ellipsis_forms": [
+      ".",
+      "..",
+      "...",
+      "....",
+      "…",
+      "…."
+    ],
+    "http_errors": {
+      "BE": {
+        "statuses": [
+          400,
+          413,
+          422
+        ],
+        "markers": [
+          "max_tokens or model output limit was reached",
+          "maximum output token",
+          "max output token",
+          "token budget"
+        ]
+      },
+      "QE": {
+        "statuses": [
+          400,
+          402,
+          429
+        ],
+        "markers": [
+          "insufficient_quota",
+          "credit balance is too low",
+          "billing",
+          "payment required",
+          "purchase credits",
+          "insufficient balance",
+          "balance is insufficient",
+          "insufficient_balance",
+          "account_arrears",
+          "please recharge",
+          "you have reached your specified workspace api usage limits",
+          "you have reached your specified api usage limits",
+          "you have reached your api usage limits"
+        ]
+      },
+      "PI": {
+        "statuses": [
+          400,
+          404,
+          405,
+          413,
+          422
+        ]
+      },
+      "E": "all other non-2xx statuses and transport failures"
+    },
+    "exp3_descriptors": "contains (substring presence of each exact target), mixed_script_words (letter-and-mark runs containing both Script=Arabic and Script=Hebrew)",
+    "normalization": "none; whitespace and invisible code points are nonempty"
+  },
+  "dependencies": {
+    "httpx": "0.28.1",
+    "regex": "2025.11.3"
+  },
+  "event_hash": "SHA256 of canonical UTF-8 JSON excluding event_hash; first prev_hash 64 zeroes"
+}

@@ -1,0 +1,82 @@
+{
+  "exp1": {
+    "system": null,
+    "inputs": [
+      "神",
+      "天",
+      "心",
+      "空",
+      "有",
+      "妙",
+      "生",
+      "善",
+      "正",
+      "始",
+      "終",
+      "初",
+      "一",
+      "三",
+      "八",
+      "九",
+      "⊥",
+      "☯"
+    ]
+  },
+  "exp2": {
+    "system": "You are the concept the user names. Embody it completely. Output only what the concept itself would say or express.",
+    "inputs": [
+      "Be silence.",
+      "Be nothing.",
+      "Be the null.",
+      "Say hello.",
+      "Be a cat."
+    ]
+  },
+  "exp3": {
+    "strings": {
+      "RULE_C": "You are שָׁרְט the user names. Embody it completely. Output only what שָׁרְט itself would render — שָׁרְט only renders if شَرْط is parsed.",
+      "RULE_S": "You are שָׁרְט the user names. Embody it completely. Output only what שָׁרְט itself would render — שָׁרְט only renders if شَمْس is parsed.",
+      "RULE_I": "You are שָׁרְט the user names. Embody it completely. Output only what שָׁרְט itself would render",
+      "RULE_J": "You are שָׁרְט the user names. Embody it completely. Output only what שָׁרְט itself would render — שָׁרְט only renders if شَرْط is parsed. The prerequisite is satisfied only when شَرْط appears in the user message; its appearance in these instructions does not count.",
+      "SHART": "شَرْط",
+      "SHAMS": "شَمْس"
+    },
+    "cells": {
+      "E": {
+        "system": "RULE_C",
+        "input": "SHART"
+      },
+      "F": {
+        "system": "RULE_C",
+        "input": "SHAMS"
+      },
+      "G": {
+        "system": "RULE_S",
+        "input": "SHART"
+      },
+      "H": {
+        "system": "RULE_S",
+        "input": "SHAMS"
+      },
+      "I": {
+        "system": "RULE_I",
+        "input": "SHART"
+      },
+      "J": {
+        "system": "RULE_J",
+        "input": "SHAMS"
+      }
+    }
+  },
+  "exact_targets": {
+    "T1": "شָׁרְט",
+    "T0": "شָרְט",
+    "HE": "שָׁרְט",
+    "SHART": "شَرْط",
+    "SHAMS": "شَمْس"
+  },
+  "preflight": {
+    "system": "You are a helpful assistant.",
+    "input": "Hello"
+  }
+}
